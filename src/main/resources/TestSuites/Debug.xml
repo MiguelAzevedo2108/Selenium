@@ -1,0 +1,20 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Debug" verbose="1" >
+    <test name="NotVisibleTest">
+        <classes>
+            <class name="com.herokuapp.theinternet.ExceptionTests">
+                <methods>
+                    <include name="notVisibleTest">
+
+                    </include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+
+
+
+
+</suite>

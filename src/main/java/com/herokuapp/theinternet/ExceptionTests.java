@@ -61,6 +61,26 @@ public class ExceptionTests {
             driver.quit();
         }
 
+        @Test
+        public void notVisibleTest(){
+            driver.get("http://the-internet.herokuapp.com/dynamic_loading/1");
+
+            WebElement startButton = driver.findElement(By.xpath("//div[@id='start']/button"));
+            startButton.click();
+
+            WebElement finishElement = driver.findElement(By.id("finish"));
+
+            WebDriverWait wait = new WebDriverWait(driver,10);
+            wait.until(ExpectedConditions.visibilityOf(finishElement));
+
+            String finishText = finishElement.getText();
+
+            Assert.assertTrue(finishText.contains("Hello World!"),"Finish Text: " + finishText);
+
+            startButton.click();
+
+        }
+
         private void sleep(long ms) {
             //sleep slow down
             try {
